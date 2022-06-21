@@ -1,0 +1,365 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>About me</title>
+	<link rel="stylesheet" href="{% static 'css/Aboutme.css'%}">
+	<style type="text/css">
+		.container{
+			display: grid;
+			grid-template-columns: 300px auto;
+			max-width: 80%;
+			margin: auto;
+			box-shadow: 0px 0px 50px #ccc;
+		}
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+		*{
+			box-sizing: border-box;
+			margin: 0;
+			list-style: none;
+			font-family: 'montserrat', sans-serif;
+		}
+		.name_display{
+				font-size: 20px;
+				text-align: center;
+				border: 1px solid black;
+				width: 50%;
+				margin: auto;
+				margin-bottom: 10px;
+			}
+			a{
+				text-decoration: none;
+				background-color: #6699ff ;
+				color: white;
+				padding: 12px 20px;
+				font-size: 17px;
+				border-radius: 30px;
+			}
+		.left-container{
+			background-color: #aabfaa;
+			border: 1px solid #ccc;
+			box-shadow: 0px 0px 20px #ccc;
+		}
+		.left-container .img-section{
+			padding: 50px;
+			max-width: 100%;
+
+		}
+		.left-container .img-section img{
+			width: 100%;
+			height: 100%;
+			border-radius: 30px;
+			border: 2px solid white;
+			padding: 10px;
+		}
+		.left-container .inforamtion-section{
+			color: white;
+			line-height: 30px;
+		}
+		.right-container{
+				margin: 30px;
+				padding: 20px;
+		}
+		.profile .profile-head{
+			border: 1px solid #dcbcad;
+			color: white;
+			background-color: #dcbcad;
+			font-size: 17px;
+			padding: 5px 15px;
+			box-shadow: 0px 0px 20px #ccc;
+			margin-bottom: 15px;
+		}
+		.profile .profile-data{
+			color: #999999;
+		}
+		.reference .reference-head{
+			border: 1px solid #dcbcad;
+			color: white;
+			background-color: #dcbcad;
+			font-size: 17px;
+			padding: 5px 15px;
+			box-shadow: 0px 0px 20px #ccc;
+			margin-bottom: 15px;
+		}
+		.reference .reference-data{
+			color: #999999;
+		}
+		.education .education-head{
+			border: 1px solid #dcbcad;
+			color: white;
+			background-color: #dcbcad;
+			font-size: 17px;
+			padding: 5px 15px;
+			box-shadow: 0px 0px 20px #ccc;
+			margin-bottom: 15px;
+			margin-top: 15px;
+		}
+		.education .education-data{
+			color: #999999;
+		}
+		.education .education-data table{
+			width: 100%;
+			border-collapse: collapse;
+			border-bottom: 1px solid #ccc;
+			text-align: center;
+		}
+		.education .education-data table th{
+			padding: 5px;
+			border-bottom: 1px solid #ccc;
+		}
+		.education .education-data table td{
+			padding: 5px;
+			border-bottom: 1px solid #ccc;
+		}
+		.skills .skills-head{
+			border: 1px solid #dcbcad;
+			color: white;
+			background-color: #dcbcad;
+			font-size: 17px;
+			padding: 5px 15px;
+			box-shadow: 0px 0px 20px #ccc;
+			margin-bottom: 15px;
+			margin-top: 15px;
+		}
+		.skills .skills-data{
+			display: flex;
+			color: #999999;
+		}
+		.skills .skills-data .skills-data-left{
+			flex: 50%;
+			
+			margin: 5px;
+		}
+		.skills .skills-data .skills-data-left .skills-data-left-head{
+			border-bottom: 1px solid #ccc;
+			text-align: center;
+		}
+		.skills .skills-data .skills-data-right{
+			flex: 50%;
+				
+			margin: 5px;
+		}
+		.skills .skills-data .skills-data-right .skills-data-right-head{
+			border-bottom: 1px solid #ccc;
+			text-align: center;
+		}
+				@media only screen and (max-width: 768px) {
+			.container{
+				max-width: 100%;
+				display: block;
+			}
+			.skills .skills-data{
+				display: block;
+			}
+
+		}
+		@media only screen and (max-width: 1000px){
+			.container{
+				max-width: 100%;
+			}
+		}
+	</style>
+</head>
+<body>
+    
+	<div class="container">
+		<div class="left-container">
+			<div class="img-section">
+				<img src="{% static 'image/man2.jpg'%}">
+			</div>
+			<div class="inforamtion-section">
+				<center>
+					<h1 style="font-weight: 250px;">
+					Aayush Shrestha
+					</h1>
+				</center>
+				<center>
+					<h2 style="margin-top: 30px; font-size: 17px; border-bottom: 5px solid white;">
+					aayush2021@gmail.com
+					</h2>
+				</center>
+				<center style = "margin-top: 30px; font-size: 20px;"><u><b>address</b></u>
+				</center>
+				<center>
+					<b>Bhainsepati, Lalitpur</b>
+				</center>
+				<center style = "margin-top: 30px; font-size: 20px;"><u><b><i>Contact</i></b></u>
+				</center>
+				<center>
+					<b>Phone: 9808073293</b>
+				</center>
+				<center>
+					<b>LinkedIn: Aayush Shrestha</b>
+				</center>
+				<center>
+					<b>Facebook: Aayush Shre stha</b>
+				</center>
+			</div>	
+		</div>
+		<div class="right-container">
+			<div class="profile">
+				<div class="profile-head">
+					<b>P  R  O  F  I  L  E</b>
+				</div>
+				<div class="profile-data">
+					<b>My name is Aayush Shrestha. Currently I am living in Bhainsepati, Lalitpur. I am studying at grade 12 and at last year of my diploma in Computer Engineering. I am skilled at the programming but lack in necessary experience. I have been focusing on my programming skills since I was at grade 9 and since then I have learned a lot programming and honning my programming skills.</b>
+				</div>
+			</div>
+			<div class="education">
+				<div class="education-head">
+					<b>E  D  U  C  A  T  I  O  N</b>
+				</div>
+				<div class="education-data">
+					<table>
+						<tr>
+							<th>Year</th>
+							<th>Level</th>
+							<th>Institute</th>
+							<th>Address</th>
+						</tr>
+						<tr>
+							<td><b>2072-2076</b></td>
+							<td><b>Technical SEE</b></td>
+							<td><b>Adarsha Saula Yubak S.S</b></td>
+							<td><b>Bungamati, Lalitpur</b></td>
+						</tr>
+						<tr>
+							<td><b>Running</b></td>
+							<td><b>Diploma in Computer Engineering</b></td>
+							<td><b>Adarsha Saula Yubak college</b></td>
+							<td><b>Bungamati, Lalitpur</b></td>
+
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="skills">
+				<div class="skills-head">
+					<b>S  K  I  L  L  S</b>
+				</div>
+				<div class="skills-data">
+					<div class="skills-data-left">
+						<div class="skills-data-left-head">
+							<b>Academic Skills</b>
+						</div>
+						<div class="skills-data-left-data">
+							<div class="skills-bar">
+								<div class="bar">
+									<div class="info">
+										<span>HTML</span>
+									</div>
+									<div class="progress-line html">
+										<span></span>
+									</div>
+								</div>
+								<div class="bar">
+									<div class="info">
+										<span>CSS</span>
+									</div>
+									<div class="progress-line css">
+										<span></span>
+									</div>
+								</div>
+								<div class="bar">
+									<div class="info">
+										<span>C</span>
+									</div>
+									<div class="progress-line c">
+										<span></span>
+									</div>
+								</div>
+								<div class="bar">
+									<div class="info">
+										<span>C++</span>
+									</div>
+									<div class="progress-line cplus">
+										<span></span>
+									</div>
+								</div>
+								<div class="bar">
+									<div class="info">
+										<span>JAVA</span>
+									</div>
+									<div class="progress-line java">
+										<span></span>
+									</div>
+								</div>
+								<div class="bar">
+									<div class="info">
+										<span>PhP</span>
+									</div>
+									<div class="progress-line php">
+										<span></span>
+									</div>
+								</div>
+								<div class="bar">
+									<div class="info">
+										<span>JavaScript</span>
+									</div>
+									<div class="progress-line javascript">
+										<span></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="skills-data-right">
+						<div class="skills-data-right-head">
+							<b>Extra Skills</b>
+							
+						</div>
+						<div class="skills-data-right-data">
+							<div class="skills-bar">
+								<div class="bar">
+									<div class="info">
+										<span>Python</span>
+									</div>
+									<div class="progress-line python">
+										<span></span>
+									</div>
+								</div>
+								<div class="bar">
+									<div class="info">
+										<span>Djnago</span>
+									</div>
+									<div class="progress-line django">
+										<span></span>
+									</div>
+								</div>
+								<div class="bar">
+									<div class="info">
+										<span>Wordpress</span>
+									</div>
+									<div class="progress-line wordpress">
+										<span></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="reference">
+				<div class="reference-head">
+					<b>R  E  F  E  R  E  N  C  E</b>
+				</div>
+				<div class="reference-data">
+					<b>
+						Name: Niroj Kumar Shrestha <br>
+						Position: Technical Teacher <br>
+						Contact: 9841882910 <br>
+					</b>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+</body>
+</html>
