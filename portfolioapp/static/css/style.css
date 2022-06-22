@@ -1,39 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 *{
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
-.name_display{
-    font-size: 20px;
-    text-align: center;
-    border: 1px solid black;
-    width: 50%;
-    margin: auto;
-    margin-bottom: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 50px;
-    border-radius: 10px;
-
-}
 nav{
-    background-color: #dcbcad;
+    width: 100%;
     overflow: hidden;
-    text-align: center;
-
+    background-color: black;
+    padding: 15px 30px;
 }
-nav a{
-    text-decoration: none;
+nav p{
     color: white;
-    padding: 12px 20px;
-    display: inline-block;
-    font-size: 18px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
 }
-nav a:hover{
-    background-color: #aabfaa;
-}
-.active{
-    background-color: #aabfaa;
+p span{
+    color: red;
 }
