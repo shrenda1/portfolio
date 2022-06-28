@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Home</title>
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/aboutme.css' %}">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<style>
@@ -17,41 +18,120 @@
 			position: relative;
 			background: url('{% static "image/bannar.jpg"%}') no-repeat center;
 			background-size: cover;
-			height: 500px;
+			height: 92vh;
 			overflow: hidden;
 			box-shadow: 0px 0px 20px black;
 		}
 		.banner-container{
 			position: absolute;
-			top: 80%;
+			top: 60%;
 			left: 50%;
-			transform: translate(-50%, -80%);
-			text-align: center;
-			font-weight: 700;
+			transform: translate(-50%, -60%);
+			text-align: left;
+			font-weight: 600;
 		}
 		.banner-container span{
 			color: white;
 		}
-		h1 span{
-			text-transform: uppercase;
-			border: 6px solid white;
-			display: inline-block;
-			padding: 10px;
-		}
 		.cen{
-			font-size: 20px;
-			margin: 20px;
+			font-size: 50px;
+			margin: 10px;
 			display: block;
 		}
 		.banner-container h1{
-			margin: 0;
+			margin: 10px;
 			font-size: 50px;
+			color: white;
+			font-weight: 400;
 		}
+		.banner-container .banner-links{
+			margin: 10px;
+		}
+		.banner-links a{
+			margin-right: 10px;
+		}
+		.aboutme-container, .education-container{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			padding: 50px;
+			margin: 50px;
+			border: 1px solid white;
+			box-shadow: 0px 0px 20px #ccc;
+		}
+		.aboutme-image .about-img, .education-imgae .education-img{
+			width: 100%;
+		}
+		.about-img img, .education-img img{
+			max-width: 100%;
+
+		}
+		.aboutme-text, .education-text{
+			margin-left: 5px;
+			text-align: justify;
+		}
+		.aboutme-text-heading, .education-text-heading{
+			margin-bottom: 20px;
+		}
+		.aboutme-text-heading b, .education-text-heading b{
+			font-size: 40px;
+			border-bottom: 5px solid black;
+			padding-bottom: 10px;
+		}
+		.aboutme-text table{
+			width: 100%;
+		}
+		.aboutme-text tr{
+			border-bottom: 1px solid #ccc;
+		}
+		.aboutme-text td{
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+		.aboutme-links{
+			margin-top: 25px;
+		}
+		.aboutme-links a{
+			margin-right: 10px;
+		}
+		.skills{
+			padding: 50px;
+			margin: 50px;
+			border: 1px solid white;
+			box-shadow: 0px 0px 20px #ccc;
+		}
+		.skills-head b{
+			font-size: 40px;
+			border-bottom: 5px solid black;
+			padding-bottom: 10px;
+		}
+		.education-info{
+			padding-top: 50px;
+			padding-right: 40px;
+		}
+		.education-info-in{
+			background: #eee;
+			padding: 20px;
+			border-radius: 10px;
+		}
+		.education-info h3{
+			font-size: 30px;
+			font-weight: 800;
+		}
+		@media only screen and (max-width: 1000px) {
+			.aboutme-container, .education-container{
+				display: block;
+				margin-top: 10px;
+			}
+			.aboutme-image .about-img, .education-image .education-img{
+				display: none;
+			}
+		  }
 		
 	</style>
 </head>
 
 <body>
+	<a name="home"></a>
 	<nav>
 		<p>Aayush <span>Shrestha</span></p>
 	</nav>
@@ -59,17 +139,185 @@
 	<div class="main">
 		<div class="banner-image">
 			<div class="banner-container">
-				<h1><span>Aayush <p style="color: red; display:inline-block;">Shrestha</p></span></h1>
-				<span class="cen">I am a web developer</span>
+				<h1>Hello</h1>
+				<span class="cen">I'm Web <p style="color: red; display:inline-block;">Developer</p></span>
+				<div class="banner-links">
+					<a href=""><img src="{% static 'image/icons8-facebook-circled-30 (1).png' %}" alt=""></a>
+					<a href=""><img src="{% static 'image/icons8-linkedin-circled-30.png' %}" alt=""></a>
+					<a href=""><img src="{% static 'image/icons8-twitter-30.png' %}" alt=""></a>
+					<a href=""><img src="{% static 'image/icons8-instagram-30-white.png' %}" alt=""></a>
+				</div>
 			</div>
 		</div>
+
+		<div class="aboutme-container">
+			<div class="aboutme-image">
+				<div class="about-img">
+					<img style="height:500px;" src="{% static 'image/web developer.jpg' %}" alt="">
+				</div>
+			</div>
+			<div class="aboutme-text">
+				<div class="aboutme-text-heading">
+					<b>ABOUT ME</b>
+				</div>
+				<p>My name is Aayush Shrestha. I am a web Developer. I am currently living in saibu-25, Bhainsepati. I have been learning web development since I was in grade 9. I have completed my computer engineering diploma. I love coding and always thriving to learn new things and imporve my skills. I am always trying to enhance my skills.</p>
+				<table>
+					<tr>
+						<td>
+							Address: 
+						</td>
+						<td>
+							Saibu-25, Bhainsepati
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Contact: 
+						</td>
+						<td>
+							9808073293
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Email: 
+						</td>
+						<td>
+							aayush2021shrestha@gmail.com
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Date of Birth: 
+						</td>
+						<td>
+							2004/7/17
+						</td>
+					</tr>
+					
+				</table>
+				<div class="aboutme-links">
+					<a href=""><img src="{% static 'image/icons8-facebook-30.png' %}" alt=""></a>
+					<a href=""><img src="{% static 'image/icons8-linkedin-circled-30 (1).png' %}" alt=""></a>
+					<a href=""><img src="{% static 'image/icons8-twitter-30 (1).png' %}" alt=""></a>
+					<a href=""><img src="{% static 'image/icons8-instagram-30.png' %}" alt=""></a>
+				</div>
+			</div>
+		</div>
+		<a name="skills"></a>
+		<div class="skills">
+			<div class="skills-head">
+				<b>SKILLS</b>
+			</div>
+			<div class="skills-data">
+				<div class="skills-data-left">
+					<div class="skills-data-left-data">
+						<div class="skills-bar">
+							<div class="bar">
+								<div class="info">
+									<span>HTML</span>
+								</div>
+								<div class="progress-line html">
+									<span></span>
+								</div>
+							</div>
+							<div class="bar">
+								<div class="info">
+									<span>CSS</span>
+								</div>
+								<div class="progress-line css">
+									<span></span>
+								</div>
+							</div>
+							<div class="bar">
+								<div class="info">
+									<span>C</span>
+								</div>
+								<div class="progress-line c">
+									<span></span>
+								</div>
+							</div>
+							<div class="bar">
+								<div class="info">
+									<span>C++</span>
+								</div>
+								<div class="progress-line cplus">
+									<span></span>
+								</div>
+							</div>
+							<div class="bar">
+								<div class="info">
+									<span>PYTHON</span>
+								</div>
+								<div class="progress-line python">
+									<span></span>
+								</div>
+							</div>
+							<div class="bar">
+								<div class="info">
+									<span>PhP</span>
+								</div>
+								<div class="progress-line php">
+									<span></span>
+								</div>
+							</div>
+							<div class="bar">
+								<div class="info">
+									<span>JavaScript</span>
+								</div>
+								<div class="progress-line javascript">
+									<span></span>
+								</div>
+							</div>
+							<div class="bar">
+								<div class="info">
+									<span>Django</span>
+								</div>
+								<div class="progress-line django">
+									<span></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<a name="education"></a>
+		<div class="education-container">
+			<div class="education-text">
+				<div class="education-text-heading">
+					<b>Education</b>
+					<div class="education-info">
+						<div class="education-info-in">
+							<h3>Technical SEE</h3>
+							<span>Adarsha Saula Yubak Secondary School, </span>
+							<span>2020</span>
+						</div>
+					</div>
+					<div class="education-info">
+						<div class="education-info-in">
+							<h3>Diploma In Computer Engineering</h3>
+							<span>Adarsha Saula College, </span>
+							<span>2020</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="education-image">
+				<div class="education-img">
+					<img style="height:500px;" src="{% static 'image/education4.jpg' %}" alt="">
+				</div>
+			</div>
+		</div>
+
 	</div>
 	<footer>
 		<div class="menu-bar">
 			<div class="menu-bar-items">
-				<a class="menu-btn" href="">Home</a>
-				<a class="menu-btn" href="">Skills</a>
-				<a class="menu-btn" href="">Education</a>
+				<a class="menu-btn" href="#home">Home</a>
+				<a class="menu-btn" href="#skills">Skills</a>
+				<a class="menu-btn" href="#education">Education</a>
 				<a class="menu-btn" href="{% static 'files/CV_2022  (Aayush Shrestha).pdf' %}" download="CV.pdf">CV</a>
 			</div>
 		</div>

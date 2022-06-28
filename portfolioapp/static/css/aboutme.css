@@ -1,17 +1,19 @@
-
-
 .skills-bar{
-	padding: 10px;
+	margin-bottom: 30px;
+	margin-top: 30px;
 }
 .skills-bar .bar{
-	margin: 12px 0;
+	margin-bottom: 30px;
+	display: grid;
+	grid-template-columns: 10% 90%;
 }
+
 .skills-bar .bar:first-child{
 	margin-top: 2px;
 }
 .skills-bar .bar .info span{
-	font-size: 12px;
-	font-weight: 500;
+	font-size: 20px;
+	font-weight:800;
 	opacity: 0;
 	animation: showtext 0.5s 1s linear forwards;
 }
@@ -22,7 +24,7 @@
 }
 .skills-bar .bar .progress-line{
 	position: relative;
-	height: 12px;
+	height: 20px;
 	width: 100%;
 	background-color: #ccc;
 	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.05), 0px 1px 1px rgba(255, 255, 255, 0.8);
@@ -30,12 +32,13 @@
 	transform: scaleX(0);
 	transform-origin: left;
 	animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+	box-shadow: 0px 0px 10px #ddd;
 }
 .bar .progress-line span{
 	position: absolute;
 	height: 100%;
 	width: 50%;
-	background: #dcbcad;
+	background: red;
 	border-radius: 10px;
 	transform: scaleX(0);
 	transform-origin: left;
@@ -86,20 +89,20 @@
 	border: 7px solid transparent;
 	border-bottom-width: 0px;
 	border-right-width: 0px;
-	border-top-color: #aabfaa;
+	border-top-color: black;
 	opacity: 0;
 	animation: showtext2 0.5s 1.5s linear forwards;
 }
 .bar .progress-line span::after{
 	position: absolute;
 	right: 0;
-	top: -25px;
+	top: -35px;
 	color: #fff;
 	font-weight: 500;
-	background: #aabfaa;
-	padding: 1px 2px;
+	background: black;
+	padding: 3px 3px;
 	border-radius: 3px;
-	font-size: 13px;
+	font-size: 15px;
 	opacity: 0;
 	animation: showtext2 0.5s 1.5s linear forwards;
 }
@@ -138,4 +141,9 @@
 .progress-line.wordpress span::after{
 	content: '70%';
 }
+@media only screen and (max-width: 1000px) {
+	.skills-bar .bar{
+		display: block;
+	}
+  }
 
