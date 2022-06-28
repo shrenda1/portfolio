@@ -38,7 +38,7 @@
 	position: absolute;
 	height: 100%;
 	width: 50%;
-	background: red;
+	background: #660000;
 	border-radius: 10px;
 	transform: scaleX(0);
 	transform-origin: left;

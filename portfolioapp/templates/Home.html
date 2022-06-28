@@ -5,14 +5,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Home</title>
+	<title>Portfolio</title>
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<link rel="stylesheet" href="{% static 'css/aboutme.css' %}">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<style>
 		.active {
-			color: red;
+			color: #660000;
+		}
+		nav{
+			font-weight: 600;
 		}
 		.banner-image{
 			position: relative;
@@ -90,7 +93,7 @@
 		.aboutme-links{
 			margin-top: 25px;
 		}
-		.aboutme-links a{
+		.aboutme-links a, .footer-btm-links a{
 			margin-right: 10px;
 		}
 		.skills{
@@ -126,21 +129,33 @@
 				display: none;
 			}
 		  }
-		
+		.footer-btm{
+			width: 100%;
+			overflow: hidden;
+			background-color: #000000;
+			padding: 10px 30px;
+			display: flex;
+			justify-content: space-between;
+		}
+		.footer-btm p{
+			margin: 0;
+			color: white;
+			font-weight: 600;
+		}
 	</style>
 </head>
 
 <body>
 	<a name="home"></a>
 	<nav>
-		<p>Aayush <span>Shrestha</span></p>
+		<p>Aayush <span style="color: #990000;">Shrestha</span></p>
 	</nav>
 
 	<div class="main">
 		<div class="banner-image">
 			<div class="banner-container">
 				<h1>Hello</h1>
-				<span class="cen">I'm Web <p style="color: red; display:inline-block;">Developer</p></span>
+				<span class="cen">I'm Web <p style="color: #990000; display:inline-block;">Developer</p></span>
 				<div class="banner-links">
 					<a href=""><img src="{% static 'image/icons8-facebook-circled-30 (1).png' %}" alt=""></a>
 					<a href=""><img src="{% static 'image/icons8-linkedin-circled-30.png' %}" alt=""></a>
@@ -322,6 +337,16 @@
 			</div>
 		</div>
 	</footer>
+
+	<div class="footer-btm">
+		<p>aayush2021shrestha@gmail.com</p>
+		<div class="footer-btm-links">
+			<a href=""><img src="{% static 'image/icons8-facebook-circled-30 (1).png' %}" alt=""></a>
+			<a href=""><img src="{% static 'image/icons8-linkedin-circled-30.png' %}" alt=""></a>
+			<a href=""><img src="{% static 'image/icons8-twitter-30.png' %}" alt=""></a>
+			<a href=""><img src="{% static 'image/icons8-instagram-30-white.png' %}" alt=""></a>
+		</div>
+	</div>
 
 
 
