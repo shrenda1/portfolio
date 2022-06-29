@@ -11,21 +11,33 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<style>
+		html{
+			font-family: 'Roboto', sans-serif;
+		}
 		.active {
 			color: #660000;
 		}
-		nav{
+
+		nav {
 			font-weight: 600;
 		}
-		.banner-image{
+
+		.banner-image {
 			position: relative;
 			background: url('{% static "image/bannar.jpg"%}') no-repeat center;
 			background-size: cover;
-			height: 92vh;
+			height: 100vh;
 			overflow: hidden;
 			box-shadow: 0px 0px 20px black;
 		}
-		.banner-container{
+		.banner-head{
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			font-weight: 600;
+			font-size: 30px;
+		}
+		.banner-container {
 			position: absolute;
 			top: 60%;
 			left: 50%;
@@ -33,103 +45,168 @@
 			text-align: left;
 			font-weight: 600;
 		}
-		.banner-container span{
+
+		.banner-container span {
 			color: white;
 		}
-		.cen{
+
+		.cen {
 			font-size: 50px;
 			margin: 10px;
 			display: block;
 		}
-		.banner-container h1{
+
+		.banner-container h1 {
 			margin: 10px;
 			font-size: 50px;
 			color: white;
 			font-weight: 400;
 		}
-		.banner-container .banner-links{
+
+		.banner-container .banner-links {
 			margin: 10px;
 		}
-		.banner-links a{
+
+		.banner-links a {
 			margin-right: 10px;
 		}
-		.aboutme-container, .education-container{
+
+		.skills,
+		.aboutme-container,
+		.education-container {
 			display: grid;
 			grid-template-columns: 50% 50%;
 			padding: 50px;
 			margin: 50px;
 			border: 1px solid white;
-			box-shadow: 0px 0px 20px #ccc;
+			justify-content: space-between;
 		}
-		.aboutme-image .about-img, .education-imgae .education-img{
+		.projects-container{
+			margin: 50px;
+			padding: 30px 50px 50px 50px;
+			border: 1px solid white;
+		}
+		.projects-container:hover,
+		.skills:hover,
+		.aboutme-container:hover,
+		.education-container:hover {
+			box-shadow: 0px 0px 20px #cccc;
+			transition: all 0.5s ease-in-out;
+		}
+
+		.skills:hover .skills-img img,
+		.aboutme-container:hover .about-img img,
+		.education-container:hover .education-img img, 
+		.education-container:hover .education-info-in{
+			box-shadow: none;
+			transition: all 0.5s ease-in-out;
+		}
+
+		.skills-imgae .skills-img,
+		.aboutme-image .about-img,
+		.education-imgae .education-img {
 			width: 100%;
 		}
-		.about-img img, .education-img img{
-			max-width: 100%;
 
+		.skills-img img,
+		.about-img img,
+		.education-img img {
+			max-width: 100%;
+			box-shadow: 0px 0px 20px #ccc;
 		}
-		.aboutme-text, .education-text{
-			margin-left: 5px;
+
+		.skills-text,
+		.aboutme-text{
 			text-align: justify;
+			margin-left: 10px;
 		}
-		.aboutme-text-heading, .education-text-heading{
+		.education-text{
+			margin-left: 10px;
+		}
+		.skills-text-in{
+			padding-top: 20px;
+		}
+		.skills-text-in p{
+			font-size: 20px;
+			font-weight: 500;
+		}
+		.projects-heading,
+		.skills-text-heading,
+		.aboutme-text-heading,
+		.education-text-heading {
 			margin-bottom: 20px;
 		}
-		.aboutme-text-heading b, .education-text-heading b{
+
+		.projects-heading b,
+		.skills-text-heading b,
+		.aboutme-text-heading b,
+		.education-text-heading b {
 			font-size: 40px;
 			border-bottom: 5px solid black;
 			padding-bottom: 10px;
 		}
-		.aboutme-text table{
+		.aboutme-text table {
 			width: 100%;
 		}
-		.aboutme-text tr{
+
+		.aboutme-text tr {
 			border-bottom: 1px solid #ccc;
 		}
-		.aboutme-text td{
+
+		.aboutme-text td {
 			padding-top: 15px;
 			padding-bottom: 15px;
 		}
-		.aboutme-links{
+
+		.aboutme-links {
 			margin-top: 25px;
 		}
-		.aboutme-links a, .footer-btm-links a{
+
+		.aboutme-links a,
+		.footer-btm-links a {
 			margin-right: 10px;
 		}
-		.skills{
-			padding: 50px;
-			margin: 50px;
-			border: 1px solid white;
-			box-shadow: 0px 0px 20px #ccc;
-		}
-		.skills-head b{
-			font-size: 40px;
-			border-bottom: 5px solid black;
-			padding-bottom: 10px;
-		}
-		.education-info{
+
+		.education-info {
 			padding-top: 50px;
 			padding-right: 40px;
 		}
-		.education-info-in{
+
+		.education-info-in {
 			background: #eee;
 			padding: 20px;
 			border-radius: 10px;
+			box-shadow: 0px 0px 20px #ccc;
 		}
-		.education-info h3{
+
+		.education-info h3 {
 			font-size: 30px;
 			font-weight: 800;
 		}
-		@media only screen and (max-width: 1000px) {
-			.aboutme-container, .education-container{
-				display: block;
-				margin-top: 10px;
-			}
-			.aboutme-image .about-img, .education-image .education-img{
-				display: none;
-			}
-		  }
-		.footer-btm{
+
+		.projects-content{
+			display: grid;
+			grid-template-columns: 30% 30% 30%;
+			justify-content: space-between;
+			padding-top: 20px;
+		}
+		.projects-content .projects-data{
+			text-decoration: none;
+			background-color: #eee;
+			padding: 30px;
+			margin-bottom: 20px;
+			color: #000000;
+			min-height: 150px;
+		}
+		.projects-content .projects-data:hover{
+			box-shadow: 0px 0px 10px #ccc;
+		}
+		.projects-content b{
+			font-weight: 600;
+			margin-bottom: 10px;
+		}
+
+		.footer-btm {
 			width: 100%;
 			overflow: hidden;
 			background-color: #000000;
@@ -137,22 +214,38 @@
 			display: flex;
 			justify-content: space-between;
 		}
-		.footer-btm p{
+
+		.footer-btm p {
 			margin: 0;
 			color: white;
 			font-weight: 600;
+		}
+		@media only screen and (max-width: 1000px) {
+
+			.projects-content,
+			.skills,
+			.aboutme-container,
+			.education-container {
+				display: block;
+				margin-top: 10px;
+			}
+
+			.skills-image .skills-img,
+			.aboutme-image .about-img,
+			.education-image .education-img {
+				display: none;
+			}
+
 		}
 	</style>
 </head>
 
 <body>
-	<a name="home"></a>
-	<nav>
-		<p>Aayush <span style="color: #990000;">Shrestha</span></p>
-	</nav>
-
 	<div class="main">
-		<div class="banner-image">
+		<div class="banner-image" id="home">
+			<div class="banner-head">
+				<p style="color: white;">Aayush <span style="color: #990000;">Shrestha</span></p>
+			</div>
 			<div class="banner-container">
 				<h1>Hello</h1>
 				<span class="cen">I'm Web <p style="color: #990000; display:inline-block;">Developer</p></span>
@@ -175,11 +268,14 @@
 				<div class="aboutme-text-heading">
 					<b>ABOUT ME</b>
 				</div>
-				<p>My name is Aayush Shrestha. I am a web Developer. I am currently living in saibu-25, Bhainsepati. I have been learning web development since I was in grade 9. I have completed my computer engineering diploma. I love coding and always thriving to learn new things and imporve my skills. I am always trying to enhance my skills.</p>
+				<p style="font-weight: 500;">My name is Aayush Shrestha. I am a web Developer. I am currently living in saibu-25, Bhainsepati. I
+					have been learning web development since I was in grade 9. I have completed my computer engineering
+					diploma. I love coding and always thriving to learn new things and imporve my skills. I am always
+					trying to enhance my skills.</p>
 				<table>
 					<tr>
 						<td>
-							Address: 
+							Address:
 						</td>
 						<td>
 							Saibu-25, Bhainsepati
@@ -187,7 +283,7 @@
 					</tr>
 					<tr>
 						<td>
-							Contact: 
+							Contact:
 						</td>
 						<td>
 							9808073293
@@ -195,7 +291,7 @@
 					</tr>
 					<tr>
 						<td>
-							Email: 
+							Email:
 						</td>
 						<td>
 							aayush2021shrestha@gmail.com
@@ -203,13 +299,13 @@
 					</tr>
 					<tr>
 						<td>
-							Date of Birth: 
+							Date of Birth:
 						</td>
 						<td>
 							2004/7/17
 						</td>
 					</tr>
-					
+
 				</table>
 				<div class="aboutme-links">
 					<a href=""><img src="{% static 'image/icons8-facebook-30.png' %}" alt=""></a>
@@ -219,90 +315,10 @@
 				</div>
 			</div>
 		</div>
-		<a name="skills"></a>
-		<div class="skills">
-			<div class="skills-head">
-				<b>SKILLS</b>
-			</div>
-			<div class="skills-data">
-				<div class="skills-data-left">
-					<div class="skills-data-left-data">
-						<div class="skills-bar">
-							<div class="bar">
-								<div class="info">
-									<span>HTML</span>
-								</div>
-								<div class="progress-line html">
-									<span></span>
-								</div>
-							</div>
-							<div class="bar">
-								<div class="info">
-									<span>CSS</span>
-								</div>
-								<div class="progress-line css">
-									<span></span>
-								</div>
-							</div>
-							<div class="bar">
-								<div class="info">
-									<span>C</span>
-								</div>
-								<div class="progress-line c">
-									<span></span>
-								</div>
-							</div>
-							<div class="bar">
-								<div class="info">
-									<span>C++</span>
-								</div>
-								<div class="progress-line cplus">
-									<span></span>
-								</div>
-							</div>
-							<div class="bar">
-								<div class="info">
-									<span>PYTHON</span>
-								</div>
-								<div class="progress-line python">
-									<span></span>
-								</div>
-							</div>
-							<div class="bar">
-								<div class="info">
-									<span>PhP</span>
-								</div>
-								<div class="progress-line php">
-									<span></span>
-								</div>
-							</div>
-							<div class="bar">
-								<div class="info">
-									<span>JavaScript</span>
-								</div>
-								<div class="progress-line javascript">
-									<span></span>
-								</div>
-							</div>
-							<div class="bar">
-								<div class="info">
-									<span>Django</span>
-								</div>
-								<div class="progress-line django">
-									<span></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<a name="education"></a>
-		<div class="education-container">
+		<div class="education-container" id="education">
 			<div class="education-text">
 				<div class="education-text-heading">
-					<b>Education</b>
+					<b>EDUCATION</b>
 					<div class="education-info">
 						<div class="education-info-in">
 							<h3>Technical SEE</h3>
@@ -326,13 +342,68 @@
 			</div>
 		</div>
 
+		<div class="skills" id="skills">
+			<div class="skills-image">
+				<div class="skills-img">
+					<img style="height:500px;" src="{% static 'image/skill3.jpg' %}" alt="">
+				</div>
+			</div>
+			<div class="skills-text">
+				<div class="skills-text-heading">
+					<b>SKILLS</b>
+				</div>
+				<div class="skills-text-in">
+					<p>Web Designing (HTML, CSS)</p>
+					<p>Python Programming Language</p>
+					<p>Django For Backend Development</p>
+					<p>Basics of java, PhP, C, C++, C#, JavaScript</p>
+					<p>SQL query Language</p>
+					<p>Good knowledge in programming</p>
+					<p>Dynamic Website Development</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="projects-container" id="projects">
+			<div class="projects-heading">
+				<b>PROJECTS</b>
+			</div>
+			<div class="projects-content">
+				<a href="https://github.com/shrenda1/madnrsolutions" target="_blank" style="text-decoration: none;">
+					<div class="projects-data">
+						<b>M and R solution Website</b>
+						<p>It is a dynamic website for M and R solution software comapny.</p>
+					</div>
+				</a>
+				<a href="https://github.com/shrenda1/portfolio" target="_blank" style="text-decoration: none;">
+					<div class="projects-data">
+						<b>Portfolio Website</b>
+						<p>It is self portfolio website.</p>
+					</div>
+				</a>
+				<a href="https://github.com/shrenda/phpregisterandlogin" target="_blank" style="text-decoration: none;">
+					<div class="projects-data">
+						<b>PHP CURD project</b>
+						<p>It is a small CURD project in PHP language.</p>
+					</div>
+				</a>
+				<a href="https://github.com/shrenda/firstpracticeproject" target="_blank" style="text-decoration: none;">
+					<div class="projects-data">
+						<b>Blog Website</b>
+						<p>It is a simple blogging website.</p>
+					</div>
+				</a>
+			</div>
+		</div>
+
 	</div>
 	<footer>
 		<div class="menu-bar">
-			<div class="menu-bar-items">
+			<div class="menu-bar-items" style="font-weight:800;">
 				<a class="menu-btn" href="#home">Home</a>
-				<a class="menu-btn" href="#skills">Skills</a>
 				<a class="menu-btn" href="#education">Education</a>
+				<a class="menu-btn" href="#skills">Skills</a>
+				<a class="menu-btn" href="#projects">Projects</a>
 				<a class="menu-btn" href="{% static 'files/CV_2022  (Aayush Shrestha).pdf' %}" download="CV.pdf">CV</a>
 			</div>
 		</div>
