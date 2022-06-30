@@ -3,6 +3,6 @@ $(document).ready(()=>{
         $('.menu-bar').css('opacity', 1);
     })
     $('.menu-bar').mouseleave(()=>{
-        $('.menu-bar').css('opacity', 0.4);
+        $('.menu-bar').css('opacity', 0.5);
     })
 })
