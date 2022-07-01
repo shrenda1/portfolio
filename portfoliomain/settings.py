@@ -79,8 +79,11 @@ WSGI_APPLICATION = 'portfoliomain.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_name'),
+        'USER': config('DB_user'),
+        'PASSWORD': config('DB_password'),
+        'HOST': config('DB_host'),
     }
 }
 
