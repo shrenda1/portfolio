@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Admin login</title>
+	<link rel="stylesheet" href="{% static 'css/loginpage.css' %}">
+	<style>
+		.errormessage{
+			background-color: aqua;
+			color: red;
+			font-weight: 600;
+			border-left: 5px solid blueviolet;
+			font-size: 17px;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<section>
+		<div class="formcontainer">
+			<div class="formheader">Admin Login</div>
+			<form method="POST" action="{% url 'login' %}">
+				{% csrf_token %}
+				<div class="row">
+					<div class="first">
+						<p>Userame:</p>
+					</div>
+					<div class="second">
+						<input type="text" name="username" placeholder="Username">
+					</div>
+				</div>
+				<div class="row">
+					<div class="first">
+						<p>Password:</p>
+					</div>
+					<div class="second">
+						<input type="Password" name="password" id="password" placeholder="Enter a Password">
+					</div>
+				</div>
+				<div class="row">
+					<input type="button" name="butn" id="sbutn" class="butn" value="show">
+				</div>
+				<div class="row">
+					<input type="submit" name="submit" value="Log in">
+				</div>
+			</form>
+			{% if messages %}
+			<div class="errormessage">
+				{% for message in messages %}
+				<p>{{message}}</p>
+				{% endfor %}
+			</div>
+			{% endif %}
+		</div>
+	</section>
+	<footer>
+		
+	</footer>
+</div>
+
+<script type="text/javascript">
+	const pass1 = document.querySelector('#password');
+	const btn = document.querySelector('#sbutn');
+
+	btn.addEventListener('click', () => {
+            if (pass1.type === "text") {
+                pass1.type = "password";
+                btn.value = "show";
+            } else {
+                pass1.type = "text";
+                btn.value = "Hide";
+            }
+        })
+</script>
+</body>
+</html>

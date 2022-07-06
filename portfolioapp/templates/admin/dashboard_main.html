@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard_main.css' %}">
+    <style>
+        .toshow {
+            display: block;
+        }
+
+        .tohide {
+            display: none;
+        }
+
+        .education-container {
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        .education-contents table {
+            width: 100%;
+        }
+
+        .education-contents td {
+            border: 1px solid #ccc;
+            margin: 0;
+            width: auto;
+            padding: 10px;
+        }
+
+        td a {
+            text-decoration: none;
+            color: black;
+        }
+
+        td a:hover {
+            color: #660000;
+        }
+
+        .education-contents th {
+            border: 1px solid black;
+            padding: 15px;
+        }
+
+        .education-contents table tr input[type=text] {
+            width: 100%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 17px;
+        }
+
+        .education-contents table tr input[type=submit] {
+            background-color: black;
+            color: white;
+            width: 100%;
+            margin: none;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            font-size: 17px;
+        }
+
+        .education-contents table tr input[type=submit]:hover {
+            background-color: #660000;
+        }
+
+        .personal-info-content-right input[type=text] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        .personal-info-content-right textarea {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+            text-align: justify;
+        }
+
+        .personal-info-edit a {
+            text-decoration: none;
+            color: white
+        }
+
+        .personal-info-edit a:hover .personal-info-link {
+            background-color: #660000;
+        }
+
+        .personal-info-link:hover {
+            background-color: #660000;
+
+        }
+
+        .personal-info-link {
+            width: 100%;
+            margin: 0;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+            background-color: black;
+            cursor: pointer;
+        }
+        .skills-form-right input[type=submit]{
+            cursor: pointer;
+        }
+        .skills-form-right input[type=submit]:hover{
+            background-color: #660000;
+        }
+        .personal-info-edit-link input[type=submit]{
+            background-color: black;
+            color: white;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            font-size: 17px;
+            cursor: pointer;
+        }
+        .personal-info-edit-link input[type=submit]:hover{
+            background-color: #660000;
+        }
+        .personal-info-edit{
+            display: none;
+            margin-bottom: 10px;
+        }
+
+        .projects-container{
+            display: none;
+        }
+        .projects-container-header{
+            background-color: #ccc;
+            font-weight: 600;
+            padding: 20px;
+            font-size: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .projects-container-header p{
+            display: inline-block;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translate( -1rem, -50%);
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            padding: 10px;
+
+        }
+        .projects-container-header p:hover{
+            background-color: #660000;
+        }
+        .projects-content{
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .projects-content .project-content{
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .project-content a{
+            text-decoration: none;
+            color: black;
+        }
+        .project-content a:hover{
+            font-weight: 600;
+            color: #660000;
+        }
+        .project-content table{
+            width: 100%;
+        }
+        table tr{
+            width: 100%;
+        }
+        .project-in{
+            display: grid;
+            grid-template-columns: 30% 70%;
+        }
+        .project-in-1{
+            text-align: center;
+        }
+        .project-in-1, .project-in-2{
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+        .project-in-link{
+            display: flex;
+            margin-top: 10px;
+            justify-content: center;
+        }
+        .project-in-link-1, .project-in-link-2{
+            margin-right: 10px;
+        }
+        .project-in-link button{
+            background-color: black;
+            border: none;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+        .project-in-2 input[type = text]{
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+        .project-in-2 textarea{
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+        .project-in-add-link{
+            margin-top: 10px;
+        }
+        .project-in-add-link input[type = submit]{
+            width: 100%;
+            background-color: black;
+            border: none;
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 17px;
+        }
+        .project-in-add-link input[type = submit]:hover{
+            background-color: #660000;
+        }
+        .projects-add-container{
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-title">
+            Portfolio
+        </div>
+        <div class="header-contents">
+            <span>
+                <p>Welcome <b style="color:#660000;">{{userdata.username}}</b></p>
+            </span>
+            <span><a href="">Visit Site</a></span>
+            <span><a href="">Change Password</a></span>
+            <span><a href="{% url 'logout' %}">Logout</a></span>
+        </div>
+    </header>
+    <section>
+
+        <div class="section-left">
+            <div class="section-left-header">
+                Portfolio Info
+            </div>
+            <div class="section-left-links">
+                <div class="section-left-link">
+                    <p id="pbtn">Personal Information</p>
+                </div>
+                <div class="section-left-link">
+                    <p id="sbtn">Skills</p>
+                </div>
+                <div class="section-left-link">
+                    <p id="ebtn">Education</p>
+                </div>
+                <div class="section-left-link">
+                    <p id="pjbtn">Projects</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-right">
+            <div class="main">
+
+                <div class="personal-info">
+                    <div class="personal-info-container" id="pcon">
+                        <div class="personal-info-header">
+                            Personal Information
+                        </div>
+                        <div class="personal-info-contents">
+                            <div class="personal-info-content">
+                                <div class="personal-info-content-left">
+                                    First Name
+                                </div>
+                                <div class="personal-info-content-right">
+                                    {{personal_info.first_name}}
+                                </div>
+                            </div>
+                            <div class="personal-info-content">
+                                <div class="personal-info-content-left">
+                                    Last Name
+                                </div>
+                                <div class="personal-info-content-right">
+                                    {{personal_info.last_name}}
+                                </div>
+                            </div>
+                            <div class="personal-info-content">
+                                <div class="personal-info-content-left">
+                                    Email Address
+                                </div>
+                                <div class="personal-info-content-right">
+                                    {{personal_info.email}}
+                                </div>
+                            </div>
+                            <div class="personal-info-content">
+                                <div class="personal-info-content-left">
+                                    Contact
+                                </div>
+                                <div class="personal-info-content-right">
+                                    {{personal_info.contact}}
+                                </div>
+                            </div>
+                            <div class="personal-info-content">
+                                <div class="personal-info-content-left">
+                                    Address
+                                </div>
+                                <div class="personal-info-content-right">
+                                    {{personal_info.address}}
+                                </div>
+                            </div>
+                            <div class="personal-info-content">
+                                <div class="personal-info-content-left">
+                                    Description
+                                </div>
+                                <div class="personal-info-content-right">
+                                    {{personal_info.description}}
+                                </div>
+                            </div>
+                            <div class="personal-info-link" id="peditbtn">
+                                <p style="color: white;">
+                                    Edit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="personal-info-edit" id="peditcon">
+                    <div class="personal-info-header">
+                        Personal Information
+                    </div>
+                    <form action="{% url 'personalinfoedit' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="personal-info-contents">
+                            <div class="personal-info-content">
+                                <div class="personal-info-content-left">
+                                    First Name
+                                </div>
+                                <div class="personal-info-content-right">
+                                    <input type="text" name="firstname" value="{{personal_info.first_name}}">
+                                </div>
+                            </div>
+                            <div class="personal-info-content">
+                                <div class="personal-info-content-left">
+                                    Last Name
+                                </div>
+                                <div class="personal-info-content-right">
+                                    <input type="text" name="lastname" value="{{personal_info.last_name}}">
+                                </div>
+                            </div>
+                            <div class="personal-info-content">
+                                <div class="personal-info-content-left">
+                                    Email Address
+                                </div>
+                                <div class="personal-info-content-right">
+                                    <input type="text" name="email" value="{{personal_info.email}}">
+                                </div>
+                            </div>
+                            <div class="personal-info-content">
+                                <div class="personal-info-content-left">
+                                    Contact
+                                </div>
+                                <div class="personal-info-content-right">
+                                    <input type="text" name="contact" value="{{personal_info.contact}}">
+                                </div>
+                            </div>
+                            <div class="personal-info-content">
+                                <div class="personal-info-content-left">
+                                    Address
+                                </div>
+                                <div class="personal-info-content-right">
+                                    <input type="text" name="address" value="{{personal_info.address}}">
+                                </div>
+                            </div>
+                            <div class="personal-info-content">
+                                <div class="personal-info-content-left">
+                                    Description
+                                </div>
+                                <div class="personal-info-content-right">
+                                    <textarea name="description" cols="30" rows="5">
+                                        {{personal_info.description}}
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="personal-info-edit-link">
+                                <input type="submit" value="Save">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+                <div class="skills-container" id="scon">
+                    <div class="skills-header">
+                        SKILLS
+                    </div>
+                    <div class="skills-contents">
+                        {% for skill in skill_data %}
+                        <div class="skills-content">
+                            <div class="skills-content-left">
+                                {{skill.skill_name}}
+                            </div>
+                            <div class="skills-content-right">
+                                <a href="{% url 'deleteskill' skill.id %}">Delete</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <form action="{% url 'skilladd' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="skills-content-form">
+                                <div class="skills-form-left">
+                                    <input type="text" name="skill_name" placeholder="Enter The Skill">
+                                </div>
+                                <div class="skills-form-right">
+                                    <input type="submit" value="Add">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="education-container" id="econ">
+                    <div class="education-header">
+                        Education
+                    </div>
+                    <div class="education-contents">
+                        <table>
+                            <tr>
+                                <th>Education Level</th>
+                                <th>Institute Name</th>
+                                <th>Year</th>
+                                <th>Edit</th>
+                            </tr>
+                            {% for education in education_data %}
+                            <tr>
+                                <td>{{education.education_level}}</td>
+                                <td>{{education.school_name}}</td>
+                                <td>{{education.end_year}}</td>
+                                <td><a href="{% url 'delete_education' education.id %}">Delete</a></td>
+                            </tr>
+                            {% endfor %}
+                            <form action="{% url 'educationadd' %}" method="POST">
+                                {% csrf_token %}
+                                <tr>
+                                    <td style="border:none; padding: 0;">
+                                        <input type="text" name="educationlevel" placeholder="Education Level">
+                                    </td>
+                                    <td style="border:none; padding: 0;">
+                                        <input type="text" name="schoolname" placeholder="School Name">
+                                    </td>
+                                    <td style="border:none; padding: 0;">
+                                        <input type="text" name="endyear" placeholder="End Year">
+                                    </td>
+                                    <td style="border:none; padding: 0;">
+                                        <input type="submit" Value="Add">
+                                    </td>
+                                </tr>
+                            </form>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="projects-container" id="pjcon">
+                    <div class="projects-container-header">
+                        Projects
+                        <p id="pjaddbtn">Add</p>
+                    </div>
+                    <div class="projects-content">
+                        {% for project in project_data %}
+                        <div class="project-content">
+                            <table>
+                                <tr>
+                                    <div class="project-in">
+                                        <div class="project-in-1">
+                                            <b>Title</b>
+                                        </div>
+                                        <div class="project-in-2">
+                                            {{project.title}}
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="project-in">
+                                        <div class="project-in-1">
+                                            <b>Description</b>
+                                        </div>
+                                        <div class="project-in-2">
+                                            {{project.description}}
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="project-in">
+                                        <div class="project-in-1">
+                                            <b>Link</b>
+                                        </div>
+                                        <div class="project-in-2">
+                                            <a href="{{project.link}}">{{project.link}}</a>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="project-in-link">
+                                        <div class="project-in-link-1">
+                                            <a style="text-decoration: none;" href="{% url 'projectdelete' project.id %}">
+                                                <button>Delete</button>
+                                            </a>
+                                        </div>
+                                        <div class="project-in-link-2">
+                                            <a style="text-decoration: none;" href="{% url 'projectedit' project.id %}">
+                                                <button>Edit</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </tr>
+                            </table>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="projects-add-container" id="pjaddcon">
+                    <div class="projects-container-header">
+                        Projects
+                    </div>
+                    <div class="projects-content">
+                        <form action="{% url 'projectadd' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="project-content">
+                                <table>
+                                    <tr>
+                                        <div class="project-in">
+                                            <div class="project-in-1">
+                                                <b>Title</b>
+                                            </div>
+                                            <div class="project-in-2">
+                                                <input type="text" name="title">
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="project-in">
+                                            <div class="project-in-1">
+                                                <b>Description</b>
+                                            </div>
+                                            <div class="project-in-2">
+                                                <textarea name="description" cols="30" rows="5"></textarea>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="project-in">
+                                            <div class="project-in-1">
+                                                <b>Link</b>
+                                            </div>
+                                            <div class="project-in-2">
+                                                <input type="text" name="link">
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <div class="project-in-add-link">
+                                            <input type="submit" value="Add">
+                                        </div>
+                                    </tr>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                {% if projectdata %}
+                    <div class="projects-edit-container">
+                        <div class="projects-container-header">
+                            Projects
+                        </div>
+                        <div class="projects-content">
+                            <form action="{% url 'projecteditdata' projectdata.id %}" method="POST">
+                                {% csrf_token %}
+                                <div class="project-content">
+                                    <table>
+                                        <tr>
+                                            <div class="project-in">
+                                                <div class="project-in-1">
+                                                    <b>Title</b>
+                                                </div>
+                                                <div class="project-in-2">
+                                                    <input type="text" name="title" value="{{projectdata.title}}">
+                                                </div>
+                                            </div>
+                                        </tr>
+                                        <tr>
+                                            <div class="project-in">
+                                                <div class="project-in-1">
+                                                    <b>Description</b>
+                                                </div>
+                                                <div class="project-in-2">
+                                                    <textarea name="description" cols="30" rows="5">
+                                                        {{projectdata.description}}
+                                                    </textarea>
+                                                </div>
+                                            </div>
+                                        </tr>
+                                        <tr>
+                                            <div class="project-in">
+                                                <div class="project-in-1">
+                                                    <b>Link</b>
+                                                </div>
+                                                <div class="project-in-2">
+                                                    <input type="text" name="link" value="{{projectdata.link}}">
+                                                </div>
+                                            </div>
+                                        </tr>
+                                        <tr>
+                                            <div class="project-in-add-link">
+                                                <input type="submit" value="Save">
+                                            </div>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        var pbtn = document.getElementById('pbtn');
+        var pcon = document.getElementById('pcon');
+        var sbtn = document.getElementById('sbtn');
+        var scon = document.getElementById('scon');
+        var econ = document.getElementById('econ');
+        var ebtn = document.getElementById('ebtn');
+        var peditbtn = document.getElementById('peditbtn');
+        var peditcon = document.getElementById('peditcon');
+        var pjbtn = document.getElementById('pjbtn');
+        var pjcon = document.getElementById('pjcon');
+        var pjaddbtn = document.getElementById('pjaddbtn');
+        var pjaddcon = document.getElementById('pjaddcon');
+        
+        pjbtn.onclick = function () {
+            pcon.classList.add('personal-info-container')
+            econ.classList.add('education-container')
+            scon.classList.add('skills-container')
+            peditcon.classList.add('personal-info-edit')
+            pjaddcon.classList.add('projects-add-container')
+            pjcon.classList.toggle('projects-container')
+        }
+        pbtn.onclick = function () {
+            pjcon.classList.add('projects-container')
+            econ.classList.add('education-container')
+            scon.classList.add('skills-container')
+            peditcon.classList.add('personal-info-edit')
+            pjaddcon.classList.add('projects-add-container')
+            pcon.classList.toggle('personal-info-container')
+
+        }
+        peditbtn.onclick = function () {
+            pcon.classList.add('personal-info-container')
+            peditcon.classList.toggle('personal-info-edit')
+        }
+        pjaddbtn.onclick = function () {
+            pjcon.classList.add('projects-container')
+            pjaddcon.classList.toggle('projects-add-container')
+        }
+        sbtn.onclick = function () {
+            pjcon.classList.add('projects-container')
+            econ.classList.add('education-container')
+            pcon.classList.add('personal-info-container')
+            peditcon.classList.add('personal-info-edit')
+            pjaddcon.classList.add('projects-add-container')
+            scon.classList.toggle('skills-container')
+        }
+        ebtn.onclick = function () {
+            pjcon.classList.add('projects-container')
+            pcon.classList.add('personal-info-container')
+            scon.classList.add('skills-container')
+            peditcon.classList.add('personal-info-edit')
+            pjaddcon.classList.add('projects-add-container')
+            econ.classList.toggle('education-container')
+        }
+
+    </script>
+</body>
+
+</html>

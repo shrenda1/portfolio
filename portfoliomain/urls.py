@@ -20,3 +20,4 @@ urlpatterns = [
     path('', include('portfolioapp.urls.urls')),
     path('admin/', admin.site.urls),
 ]
+
